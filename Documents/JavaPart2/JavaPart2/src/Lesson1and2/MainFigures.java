@@ -10,10 +10,10 @@ class FigureFabric{
    }
    public static Figure getFigure(int n){
 	   switch(n){
-	   case 0: return new CPoint(r(),r());
-	   case 1: return new ColorCPoint(r(),r(),r());
-	   case 2: return new CLine(r(),r(),r(),r());
-	   default: return null;
+	   case 0: return new CLine(new CPoint(r(),r()),new CPoint(r(),r()));
+	   case 1: return new ColorCLine(new CPoint(r(),r()),new CPoint(r(),r()),3);
+	   case 2: return new Triangle(new CPoint(r(),r()),new CPoint(r(),r()),new CPoint(r(),r()));
+	   default: return new Triangle(new CPoint(r(),r()),new CPoint(r(),r()),new CPoint(r(),r()));
 	   }
    }
 }
