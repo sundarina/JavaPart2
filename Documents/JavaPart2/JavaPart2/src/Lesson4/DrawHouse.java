@@ -1,11 +1,11 @@
 package Lesson4;
 
 import Lesson1and2.Figure;
-import Lesson1and2.Line;
-import Lesson1and2.aFigure;
-import Lesson1and2.cLine;
-import Lesson1and2.point;
-import Lesson1and2.ColoredTriangle;
+import Lesson1and2.CLine;
+import Lesson1and2.MainFigures;
+import Lesson1and2.ColorCLine;
+import Lesson1and2.CPoint;
+import Lesson1and2.Triangle;
 
 import java.io.*;
 
@@ -15,18 +15,18 @@ public class DrawHouse {
 
 	public static void main(String[] args) throws IOException {
 
-		aFigure c = new aFigure();
-		Figure[] a = c.getA();
+		MainFigures c = new MainFigures();
+		Figure[] a = c.masCPoint;
 		in = new FileReader("res" + File.separator + "in");
 		out = new FileWriter("res" + File.separator + "Figures");
 		for (int i = 0; i < a.length; i++) {
 			// System.out.println(i + 1 + ": " + a[i].getClass());
-			if (a[i].getClass().getName().equals("Lesson1and2.Line")) {
+			if (a[i].getClass().getName().equals("Lesson1and2.CLine")) {
 				// LINE
-				int x1 = ((Line) a[i]).getA().getXpos();
-				int x2 = ((Line) a[i]).getB().getXpos();
-				int y1 = ((Line) a[i]).getA().getYpos();
-				int y2 = ((Line) a[i]).getB().getYpos();
+				int x1 = ((CLine) a[i]).getStart().getX();
+				int x2 = ((CLine) a[i]).getEnd().getY();
+				int y1 = ((CLine) a[i]).getStart().getY();
+				int y2 = ((CLine) a[i]).getEnd().getY();
 				int verticalDistance = x2 - x1;
 				int horizontalDistance = y2 - y1;
 				verticalDistance = toPos(verticalDistance);
@@ -40,12 +40,13 @@ public class DrawHouse {
 				out.flush();
 				out.write(13);
 
-			} else if (a[i].getClass().getName().equals("Lesson1and2.cLine")) {
+			} else if (a[i].getClass().getName().equals("Lesson1and2.ColorCLine")) {
 
-				int x1 = ((cLine) a[i]).getA().getXpos();
-				int x2 = ((cLine) a[i]).getB().getXpos();
-				int y1 = ((cLine) a[i]).getA().getYpos();
-				int y2 = ((cLine) a[i]).getB().getYpos();
+				int x1 = ((ColorCLine) a[i]).getStart().getX();
+				int x2 = ((ColorCLine) a[i]).getEnd().getX();
+				int y1 = ((ColorCLine) a[i]).getStart().getY();
+				int y2 = ((ColorCLine) a[i]).getEnd().getY();
+				
 				int verticalDistance = x2 - x1;
 				verticalDistance = toPos(verticalDistance);
 
@@ -55,7 +56,7 @@ public class DrawHouse {
 				out.flush();
 				out.write(13);
 			} else {
-				drawTriangle(out, ((ColoredTriangle) a[i]), false);
+				drawTriangle(out, ((Triangle) a[i]), false);
 
 			}
 		}
@@ -66,7 +67,7 @@ public class DrawHouse {
 		drawTriangle(out, h.c, true);
 		drawSquare(out, h.a, false);
 		
-//		Square s = new Square(new point(0, 0), 8);
+//		Square s = new Square(new CPoint(0, 0), 8);
 //		FileOutputStream j = new FileOutputStream("res" + File.separator + "Figures");
 //		int f = s.getWidth() * 2 - 1;
 //		j.write('_');
@@ -125,9 +126,9 @@ public class DrawHouse {
 		out.flush();
 	}
 
-	public static void drawTriangle(FileWriter out, ColoredTriangle c, boolean b) throws IOException {
-		int yDistance = c.getC().getYpos() - c.getB().getYpos();
-		int xDistance = c.getC().getXpos() - c.getA().getXpos();
+	public static void drawTriangle(FileWriter out, Triangle c, boolean b) throws IOException {
+		int yDistance = c.getApexC().getY() - c.getApexB().getY();
+		int xDistance = c.getApexC().getX() - c.getApexA().getX();
 		xDistance = toPos(xDistance);
 		yDistance = toPos(yDistance);
 		int tempDis = 1;
@@ -222,7 +223,7 @@ public class DrawHouse {
 }
 
 class House {
-	ColoredTriangle c;
+	Triangle c;
 	Square a;
 	int height;
 	int width;
@@ -230,8 +231,8 @@ class House {
 	public House(int Height, int RoofHeight, int Width) {
 		this.height = Height;
 		this.width = Width;
-		a = new Square(new point(0, 0 - Height), Width);
-		c = new ColoredTriangle(new point(0, RoofHeight), new point(Width / 2, 0), new point(Width, RoofHeight), null);
+		a = new Square(new CPoint(0, 0 - Height), Width);
+		c = new Triangle(new CPoint(0, RoofHeight), new CPoint(Width / 2, 0), new CPoint(Width, RoofHeight));
 
 	}
 
@@ -239,20 +240,20 @@ class House {
 
 class Square {
 	DrawHouse f = new DrawHouse();
-	point a;
-	point b;
-	point c;
-	point d;
+	CPoint a;
+	CPoint b;
+	CPoint c;
+	CPoint d;
 
 	public int getWidth() {
-		return f.toPos(c.getXpos() - a.getXpos());
+		return f.toPos(c.getX() - a.getX());
 
 	}
 
-	public Square(point startPos, int Size) {
+	public Square(CPoint startPos, int Size) {
 		this.a = startPos;
-		this.b = new point(startPos.getXpos() + Size, startPos.getYpos());
-		this.c = new point(startPos.getXpos() + Size, startPos.getYpos() + Size);
-		this.d = new point(startPos.getXpos(), startPos.getYpos() + Size);
+		this.b = new CPoint(startPos.getX() + Size, startPos.getY());
+		this.c = new CPoint(startPos.getX() + Size, startPos.getY() + Size);
+		this.d = new CPoint(startPos.getX(), startPos.getY() + Size);
 	}
 }
