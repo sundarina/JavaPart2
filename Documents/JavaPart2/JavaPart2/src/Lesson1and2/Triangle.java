@@ -1,6 +1,8 @@
 package Lesson1and2;
 
-public class Triangle implements Figure{
+import java.io.Serializable;
+
+public class Triangle implements Figure,Serializable{
  private CPoint apexA, apexB, apexC;
  private CLine sideAB, sideBC, sideCA;
  public Triangle(CPoint A, CPoint B, CPoint C) {
@@ -55,7 +57,7 @@ public void display() {
 	System.out.println(this);
 	
 }
-
+public long SerialVersionUID = 128;
 
  
 }

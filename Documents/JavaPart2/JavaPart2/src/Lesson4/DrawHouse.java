@@ -12,11 +12,15 @@ import java.io.*;
 public class DrawHouse {
 	static FileReader in = null;
 	static FileWriter out = null;
+	static Figure[] a;
+	public DrawHouse(Figure[] a) {
+		this.a = a;
+	}
 
 	public static void main(String[] args) throws IOException {
 
-		MainFigures c = new MainFigures();
-		Figure[] a = c.masCPoint;
+		MainFigures c1 = new MainFigures();
+		
 		in = new FileReader("res" + File.separator + "in");
 		out = new FileWriter("res" + File.separator + "Figures");
 		for (int i = 0; i < a.length; i++) {
@@ -239,7 +243,7 @@ class House {
 }
 
 class Square {
-	DrawHouse f = new DrawHouse();
+	DrawHouse f = new DrawHouse(null);
 	CPoint a;
 	CPoint b;
 	CPoint c;

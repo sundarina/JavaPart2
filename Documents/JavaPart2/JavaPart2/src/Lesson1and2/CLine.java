@@ -1,6 +1,8 @@
 package Lesson1and2;
 
-public class CLine implements Figure{
+import java.io.Serializable;
+
+public class CLine implements Figure,Serializable{
 private CPoint start;
 private CPoint end;
 public CLine(CPoint start, CPoint end) {
@@ -35,4 +37,5 @@ public double length(){
 public void display() {
 	System.out.println(this);
 }
+public long SerialVersionUID = 123;
 }

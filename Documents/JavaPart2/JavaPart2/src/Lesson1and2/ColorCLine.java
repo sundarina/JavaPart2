@@ -1,6 +1,8 @@
 package Lesson1and2;
 
-public class ColorCLine extends CLine implements ColorAble{
+import java.io.Serializable;
+
+public class ColorCLine extends CLine implements ColorAble,Serializable{
 private int color;
 
 public ColorCLine(CPoint start, CPoint end, int color) {
@@ -20,5 +22,5 @@ public void setColor(int color) {
 public String toString() {
 	return "ColorCLine [color=" + color + ", getStart()=" + getStart() + ", getEnd()=" + getEnd() + "]";
 }
-
+public long SerialVersionUID = 124;
 }

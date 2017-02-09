@@ -1,6 +1,8 @@
 package Lesson1and2;
 
-public class CPoint implements Figure{
+import java.io.Serializable;
+
+public class CPoint implements Figure,Serializable{
   private int x;   
   private int y;
   public CPoint(int x, int y) {
