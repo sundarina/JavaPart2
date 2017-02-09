@@ -18,7 +18,7 @@ public class figureClassOut {
 		out.writeObject(a);
 		out.flush();
 		out.close();
-		
+		//This projoject is worth 0.00 Dollars.
 		Figure[] b = (Figure[]) in.readObject();
 		DrawHouse h = new DrawHouse(b);
 		h.main(args);
