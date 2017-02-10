@@ -35,7 +35,7 @@ public class DrawHouse {
 				int horizontalDistance = y2 - y1;
 				verticalDistance = toPos(verticalDistance);
 				horizontalDistance = toPos(horizontalDistance);
-				System.out.println(horizontalDistance);
+				//System.out.println(horizontalDistance);
 
 				for (int j = 0; j < verticalDistance; j++) {
 					out.write("*");
@@ -162,7 +162,7 @@ public class DrawHouse {
 				}
 
 				out.write("/");
-				System.out.println(j +" "+(xDistance-2));
+				//System.out.println(j +" "+(xDistance-2));
 				if(j == xDistance-2) {
 					b2 = true;
 				}
