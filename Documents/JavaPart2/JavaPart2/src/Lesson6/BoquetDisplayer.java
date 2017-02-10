@@ -29,7 +29,7 @@ class Boquet implements Serializable {
 	String name = "Boquet";
 
 	Flower[] flowerList = new Flower[(int) (Math.random() * 25)];
-	Accessory[] accessoryList = new Accessory[(int) (Math.random() * 4) + 1];
+	Accessory[] accessoryList = new Accessory[2];
 
 	public Accessory[] Accessories = new Accessory[2];
 	public Flower[] Flowers = new Flower[2];
@@ -63,7 +63,7 @@ class Boquet implements Serializable {
 	}
 
 	public void addAccessory(int Price, boolean inStock, String name) {
-		Accessory[] temp = new Accessory[flowerList.length + 1];
+		Accessory[] temp = new Accessory[accessoryList.length + 1];
 		{
 			for (int i = 0; i < accessoryList.length; i++) {
 				temp[i] = accessoryList[i];
@@ -75,7 +75,7 @@ class Boquet implements Serializable {
 
 	public void removeAccessory(int toRemove) {
 		int current = 0;
-		Accessory[] temp = new Accessory[flowerList.length - 1];
+		Accessory[] temp = new Accessory[accessoryList.length - 1];
 		for (int i = 0; i < accessoryList.length; i++) {
 			if (i != toRemove) {
 				temp[current] = accessoryList[i];
