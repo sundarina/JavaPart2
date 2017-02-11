@@ -336,7 +336,8 @@ public class boquetOutput extends JFrame {
 		btnRename.setSize(84, 64);
 		btnRename.setLocation(10, 74);
 		// Button for creating a new Boquet
-
+		
+		//Renaming a Boquet
 		panel.add(btnRename);
 		txtFieldRename.setLocation(10, 146);
 		txtFieldRename.setSize(94, 38);
@@ -348,6 +349,7 @@ public class boquetOutput extends JFrame {
 				btnDone3.setVisible(false);
 				txtFieldRename.setVisible(!true);
 				btnRename.setVisible(!false);
+				
 				try {
 					if (b[choice.getSelectedIndex()].name.contains(" ")) {
 						throw new notNameException("Not An Acceptable Name!!");
@@ -395,6 +397,7 @@ public class boquetOutput extends JFrame {
 
 			}
 		});
+		//Renaming a Boquet
 
 		// Setting the labels initially
 		if (list_1.getSelectedIndex() != -1) {
