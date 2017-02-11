@@ -72,30 +72,29 @@ public class boquetOutput extends JFrame {
 	private final JButton btnDone3 = new JButton("Done");
 	static boquetOutput frame;
 	private final JScrollPane scrollPane_1 = new JScrollPane();
-	
 
 	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
-		
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					frame = new boquetOutput();
 					frame.setVisible(true);
 				} catch (Exception e) {
-					
+
 					e.printStackTrace();
 				}
 			}
 		});
 	}
-	
+
 	public boquetOutput() throws FileNotFoundException, IOException, ClassNotFoundException {
 		Logger logger = Logger.getLogger(boquetOutput.class.getName());
 		ObjectInputStream in = new ObjectInputStream(new FileInputStream("res" + File.separator + "Boquet"));
-		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("res"+File.separator+"in"));
+		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("res" + File.separator + "in"));
 		b = (Boquet[]) in.readObject();
-		
-		//Eclipse default stuff,pay no attention
+
+		// Eclipse default stuff,pay no attention
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 329);
 		contentPane = new JPanel();
@@ -103,11 +102,9 @@ public class boquetOutput extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		contentPane.add(panel, BorderLayout.CENTER);
-		//Eclipse default stuff,pay no attention
-		
-		
-		
-		//Filling the Lists for the first time
+		// Eclipse default stuff,pay no attention
+
+		// Filling the Lists for the first time
 		String[] temp1 = new String[b[0].flowerList.length];
 		for (int i = 0; i < b[0].flowerList.length; i++) {
 			temp1[i] = b[0].flowerList[i].name;
@@ -119,11 +116,9 @@ public class boquetOutput extends JFrame {
 			temp2[i] = b[0].accessoryList[i].name;
 
 		}
-		//Filling the Lists for the first time
-		
-		
-		
-		//Filling choice with the values 
+		// Filling the Lists for the first time
+
+		// Filling choice with the values
 		for (int i = 0; i < b.length; i++) {
 			choice.add(b[i].name);
 		}
@@ -137,23 +132,20 @@ public class boquetOutput extends JFrame {
 			}
 
 		});
-		//Filling choice with the values 
-		
-		
-		
-		//Eclipse default stuff,pay no attention
+		// Filling choice with the values
+
+		// Eclipse default stuff,pay no attention
 		choice.setBackground(new Color(211, 211, 211));
 		choice.setForeground(Color.BLACK);
 		choice.setFont(new Font("Arial Unicode MS", Font.PLAIN, 14));
 		scrollPane.setBounds(139, 6, 52, 128);
 		panel.add(scrollPane);
-		scrollPane.setViewportView(list); 
+		scrollPane.setViewportView(list);
 		lblNewLabel_1.setBounds(282, 41, 152, 16);
-		//Eclipse default stuff,pay no attention
-		
-		
-		
-		//Checking for list Listeners, to make sure that labels update when a different value is selected
+		// Eclipse default stuff,pay no attention
+
+		// Checking for list Listeners, to make sure that labels update when a
+		// different value is selected
 		list.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
 				if (list.getSelectedIndex() != -1) {
@@ -166,19 +158,17 @@ public class boquetOutput extends JFrame {
 
 		});
 		list.setSelectedIndex(0);
-		//Checking for list Listeners, to make sure that labels update when a different value is selected
-		
-		
+		// Checking for list Listeners, to make sure that labels update when a
+		// different value is selected
 
-		//Eclipse default stuff,pay no attention
+		// Eclipse default stuff,pay no attention
 		panel.add(lblNewLabel_1);
 		lblNewLabel.setBounds(282, 84, 152, 16);
 		panel.add(lblNewLabel);
-		//Eclipse default stuff,pay no attention
-		
-		
+		// Eclipse default stuff,pay no attention
 
-		//Button Listener for removing flowers and accessories from their lists.
+		// Button Listener for removing flowers and accessories from their
+		// lists.
 		btnRemove.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -187,8 +177,8 @@ public class boquetOutput extends JFrame {
 				try {
 					out.writeObject(b);
 				} catch (IOException e1) {
-					logger.log(Level.SEVERE,"IOException",b);
-					
+					logger.log(Level.SEVERE, "IOException", b);
+
 					System.err.println(e1.toString());
 				}
 
@@ -200,10 +190,10 @@ public class boquetOutput extends JFrame {
 				b[choice.getSelectedIndex()].removeAccessory(list_1.getSelectedIndex());
 				refreshList2();
 				try {
-					
+
 					out.writeObject(b);
 				} catch (IOException e1) {
-					logger.log(Level.SEVERE,"IOException",b);
+					logger.log(Level.SEVERE, "IOException", b);
 					System.err.println(e1.toString());
 				}
 
@@ -215,11 +205,10 @@ public class boquetOutput extends JFrame {
 
 		btnRemove.setBounds(106, 157, 94, 27);
 		panel.add(btnRemove);
-		//Button Listener for removing flowers and accessories from their lists.
-		
-		
+		// Button Listener for removing flowers and accessories from their
+		// lists.
 
-		//Button Listener for adding flowers and accessories from their lists.
+		// Button Listener for adding flowers and accessories from their lists.
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
@@ -231,7 +220,7 @@ public class boquetOutput extends JFrame {
 		});
 		button.setBounds(223, 133, 94, 27);
 		panel.add(button);
-		
+
 		button_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -248,9 +237,10 @@ public class boquetOutput extends JFrame {
 		Add1.setSize(84, 31);
 		Add1.setLocation(10, 221);
 		panel.add(Add1);
-		//Button Listener for removing flowers and accessories from their lists.
-		
-		//Fields for creating flowers and accessories
+		// Button Listener for removing flowers and accessories from their
+		// lists.
+
+		// Fields for creating flowers and accessories
 		tglbtnIsThisFlower.setVisible(false);
 		tglbtnIsThisFlower.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -288,10 +278,10 @@ public class boquetOutput extends JFrame {
 				try {
 					out.writeObject(b);
 				} catch (IOException e1) {
-					logger.log(Level.SEVERE,"IOException",b);
+					logger.log(Level.SEVERE, "IOException", b);
 					System.err.println(e1.toString());
 				}
-				
+
 			}
 		});
 
@@ -308,7 +298,7 @@ public class boquetOutput extends JFrame {
 				try {
 					out.writeObject(b);
 				} catch (IOException e1) {
-					logger.log(Level.SEVERE,"IOException",b);
+					logger.log(Level.SEVERE, "IOException", b);
 					System.err.println(e1.toString());
 				}
 			}
@@ -317,36 +307,36 @@ public class boquetOutput extends JFrame {
 		btnDone.setBounds(192, 196, 117, 56);
 		panel.add(btnDone);
 		panel.add(btnDone2);
-		//Fields for creating flowers and accessories
-		
-		//Button for creating a new Boquet
+		// Fields for creating flowers and accessories
+
+		// Button for creating a new Boquet
 		JPanel panel_1 = new JPanel();
 		contentPane.add(panel_1, BorderLayout.NORTH);
 		btnNewBoquet.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				Boquet[] temp = new Boquet[b.length+1];
-				for(int i = 0; i < b.length;i++) {
+				Boquet[] temp = new Boquet[b.length + 1];
+				for (int i = 0; i < b.length; i++) {
 					temp[i] = b[i];
 				}
 				b = temp;
-				b[b.length-1] = new Boquet("New Boquet");
-				choice.add(b[b.length-1].name);
+				b[b.length - 1] = new Boquet("New Boquet");
+				choice.add(b[b.length - 1].name);
 				try {
 					out.writeObject(b);
 				} catch (IOException e1) {
-					logger.log(Level.SEVERE,"IOException",b);
+					logger.log(Level.SEVERE, "IOException", b);
 					System.err.println(e1.toString());
 				}
-				
+
 			}
 		});
 		panel_1.add(btnNewBoquet);
-		
+
 		btnRename.setSize(84, 64);
 		btnRename.setLocation(10, 74);
-		//Button for creating a new Boquet
-		
+		// Button for creating a new Boquet
+
 		panel.add(btnRename);
 		txtFieldRename.setLocation(10, 146);
 		txtFieldRename.setSize(94, 38);
@@ -355,25 +345,33 @@ public class boquetOutput extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				b[choice.getSelectedIndex()].name = txtFieldRename.getText();
-			    btnDone3.setVisible(false);
-			    txtFieldRename.setVisible(!true);
+				btnDone3.setVisible(false);
+				txtFieldRename.setVisible(!true);
 				btnRename.setVisible(!false);
+				try {
+					if (b[choice.getSelectedIndex()].name.contains(" ")) {
+						throw new notNameException("Not An Acceptable Name!!");
+					}
+				} catch (notNameException ex) {
+					logger.log(Level.SEVERE,"NOT AN ACCEPTABLE NAME!!!",ex);
+				}
 				choice.removeAll();
+				
 				for (int i = 0; i < b.length; i++) {
 					choice.add(b[i].name);
 				}
-				
+
 			}
 		});
 		btnDone3.setLocation(10, 74);
 		btnDone3.setSize(84, 64);
 		panel.add(btnDone3);
 		scrollPane_1.setBounds(232, 8, 48, 124);
-		
+
 		panel.add(scrollPane_1);
 		scrollPane_1.setViewportView(list_1);
 		list_1.setListData(temp2);
-		
+
 		list_1.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
 				if (list_1.getSelectedIndex() != -1) {
@@ -388,19 +386,17 @@ public class boquetOutput extends JFrame {
 		list_1.setSelectedIndex(0);
 		btnDone3.setVisible(false);
 		txtFieldRename.setVisible(false);
-		
+
 		btnRename.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtFieldRename.setVisible(true);
 				btnRename.setVisible(false);
 				btnDone3.setVisible(true);
-				
+
 			}
 		});
-		
-		
-		
-		//Setting the labels initially
+
+		// Setting the labels initially
 		if (list_1.getSelectedIndex() != -1) {
 			String flowerPrice = Integer
 					.toString(b[choice.getSelectedIndex()].accessoryList[list_1.getSelectedIndex()].Price);
@@ -408,8 +404,8 @@ public class boquetOutput extends JFrame {
 					+ " Price = " + flowerPrice);
 		}
 		btnDone2.setVisible(false);
-		
-		//Setting the labels initially
+
+		// Setting the labels initially
 	}
 
 	public void refreshList() {
@@ -428,7 +424,7 @@ public class boquetOutput extends JFrame {
 		String[] temp3 = new String[a.length];
 
 		for (int i = 0; i < a.length; i++) {
-			
+
 			temp3[i] = a[i].name;
 
 		}
@@ -437,12 +433,12 @@ public class boquetOutput extends JFrame {
 	}
 }
 
-class notAnIntegerException extends IOException   {
-	public notAnIntegerException(String message) {
-        super(message);
-    }
+class notNameException extends IOException {
+	public notNameException(String message) {
+		super(message);
+	}
 
-    public notAnIntegerException(String message, Throwable throwable) {
-        super(message, throwable);
-    }
+	public notNameException(String message, Throwable throwable) {
+		super(message, throwable);
+	}
 }
