@@ -19,7 +19,7 @@ import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import Lesson6.Accessory;
+
 import java.awt.List;
 import java.awt.Font;
 import javax.swing.JList;
@@ -436,7 +436,7 @@ public class boquetOutput extends JFrame {
 	}
 }
 
-class notNameException extends IOException {
+class notNameException extends Exception {
 	public notNameException(String message) {
 		super(message);
 	}
