@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.TreeMap;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 
@@ -30,6 +31,7 @@ import org.w3c.dom.NodeList;
 public class ProgramOfWorldMapCon {
 
 	public static void main(String[] args) throws ParserConfigurationException, TransformerException {
+		
 		WorldMap myMap = new WorldMap();
 		myMap.loadFromFile("res" + File.separator + "map.xml");
 		ProgramOfWorldMapCon a = new ProgramOfWorldMapCon();
@@ -83,6 +85,7 @@ public class ProgramOfWorldMapCon {
 		Transformer tr = trFac.newTransformer();
 		tr.setOutputProperty(OutputKeys.ENCODING, "Windows-1251");
 		tr.transform(domSource, fileResult);
+		System.out.println('h');
 
 	}
 
