@@ -3,11 +3,23 @@ package Lesson7;
 public class Country {
 private int id;
 private String name;
-public Country(int id, String name) {
+private int numOfCities;
+
+public Country(int id, String name,int numOfCities) {
 	super();
 	this.id = id;
 	this.name = name;
+	this.numOfCities = numOfCities;
 }
+
+public int getNumOfCities() {
+	return numOfCities;
+}
+
+public void setNumOfCities(int numOfCities) {
+	this.numOfCities = numOfCities;
+}
+
 public int getId() {
 	return id;
 }

@@ -60,11 +60,13 @@ public class WorldMap {
 				//Reading the country from xml file
 				Element country = (Element) listCountries.item(i);
 				
+				NodeList listCities=country.getElementsByTagName("city");
+				int f = listCities.getLength();
 				int countryCode = Integer.parseInt(country.getAttribute("id"));
 				String countryName = country.getAttribute("name");
-				Country curCountry = new Country(countryCode, countryName);
+				Country curCountry = new Country(countryCode, countryName,f);
 				countries.add(curCountry);
-				NodeList listCities=country.getElementsByTagName("city");
+				
 				
 				for (int j = 0; j < listCities.getLength(); j++) {
 					

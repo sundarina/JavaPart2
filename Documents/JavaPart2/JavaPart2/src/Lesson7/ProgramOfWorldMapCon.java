@@ -45,6 +45,8 @@ public class ProgramOfWorldMapCon {
 		// Create the root element
 		Element root = doc.createElement("Map");
 		doc.appendChild(root);
+		int j = 0;
+		
 
 		// Adding countries to the root element
 		for (int i = 0; i < myMap.getCountries().size(); i++) {
@@ -53,19 +55,22 @@ public class ProgramOfWorldMapCon {
 			root.appendChild(country1);
 
 			// Adding cities to each country
-			System.out.println(myMap.getCities().size());
-			Element city1 = doc.createElement(myMap.getCities().get(i).getName());
+			for (int f = 0 ;f < myMap.getCountries().get(i).getNumOfCities(); f++) {
+				
+				Element city1 = doc.createElement(myMap.getCities().get(j).getName());
 
-			String temp = Boolean.toString(myMap.getCities().get(i).isCap());
-			city1.setAttribute("isCapital", temp);
+				String temp = Boolean.toString(myMap.getCities().get(j).isCap());
+				city1.setAttribute("isCapital", temp);
 
-			temp = Integer.toString(myMap.getCities().get(i).getCount());
-			city1.setAttribute("Population", temp);
+				temp = Integer.toString(myMap.getCities().get(j).getCount());
+				city1.setAttribute("Population", temp);
 
-			temp = Integer.toString(myMap.getCities().get(i).getCode());
-			city1.setAttribute("id", temp);
+				temp = Integer.toString(myMap.getCities().get(j).getCode());
+				city1.setAttribute("id", temp);
 
-			country1.appendChild(city1);
+				country1.appendChild(city1);
+				j++;
+			}
 
 		}
 
