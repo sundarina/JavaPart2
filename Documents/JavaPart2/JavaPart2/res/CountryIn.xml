@@ -1,1 +1,16 @@
-<?xml version="1.0" encoding="Windows-1251" standalone="no"?><Map><Россия Id="1"><Москва Population="0" id="1" isCapital="false"/><Владивосток Population="850000" id="2" isCapital="false"/><Воронеж Population="500000" id="3" isCapital="false"/></Россия><Украина Id="2"><Киев Population="3000000" id="4" isCapital="false"/><Севастополь Population="400000" id="5" isCapital="false"/></Украина><Белоруссия Id="3"><Минск Population="1700000" id="6" isCapital="false"/><Витебск Population="350000" id="7" isCapital="false"/></Белоруссия></Map>
+<?xml version="1.0" encoding="Windows-1251" standalone="no"?>
+<Map>
+	<Россия Id="1">
+		<Москва Population="0" id="1" isCapital="false" />
+		<Владивосток Population="850000" id="2" isCapital="false" />
+		<Воронеж Population="500000" id="3" isCapital="false" />
+	</Россия>
+	<Украина Id="2">
+		<Киев Population="3000000" id="4" isCapital="false" />
+		<Севастополь Population="400000" id="5" isCapital="false" />
+	</Украина>
+	<Белоруссия Id="3">
+		<Минск Population="1700000" id="6" isCapital="false" />
+		<Витебск Population="350000" id="7" isCapital="false" />
+	</Белоруссия>
+</Map>

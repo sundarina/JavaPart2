@@ -62,9 +62,11 @@ public class ProgramOfWorldMapCon {
 				String temp = Boolean.toString(myMap.getCities().get(j).isCap());
 				city1.setAttribute("isCapital", temp);
 
+			
+
+			
 				temp = Integer.toString(myMap.getCities().get(j).getCount());
 				city1.setAttribute("Population", temp);
-
 				temp = Integer.toString(myMap.getCities().get(j).getCode());
 				city1.setAttribute("id", temp);
 
