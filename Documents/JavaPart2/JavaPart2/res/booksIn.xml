@@ -10,29 +10,4 @@
 		<BookPrice>700</BookPrice>
 		<BookAuthor>Deepak Alur</BookAuthor>
 	</Book>
-	<Book quantity="2">
-		<BookName>JavaEE Patterns</BookName>
-		<BookPrice>700</BookPrice>
-		<BookAuthor>Deepak Alur</BookAuthor>
-	</Book>
-	<Book quantity="2">
-		<BookName>JavaEE Patterns</BookName>
-		<BookPrice>700</BookPrice>
-		<BookAuthor>Deepak Alur</BookAuthor>
-	</Book>
-	<Book quantity="2">
-		<BookName>JavaEE Patterns</BookName>
-		<BookPrice>700</BookPrice>
-		<BookAuthor>Deepak Alur</BookAuthor>
-	</Book>
-	<Book quantity="2">
-		<BookName>JavaEE Patterns</BookName>
-		<BookPrice>700</BookPrice>
-		<BookAuthor>Deepak Alur</BookAuthor>
-	</Book>
-	<Book quantity="2">
-		<BookName>JavaEE Patterns</BookName>
-		<BookPrice>700</BookPrice>
-		<BookAuthor>Deepak Alur</BookAuthor>
-	</Book>
 </BookInfo>
