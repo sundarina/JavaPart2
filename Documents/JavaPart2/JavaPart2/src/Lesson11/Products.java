@@ -1,17 +1,18 @@
 package Lesson11;
 
+
 import java.sql.*;
 
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 
-public class Product {
+public class Products {
 
 	int id;
 	String name;
 	float rating;
 	int quantity;
 
-	public Product(int id, String name, float rating, int quantity) {
+	public Products(int id, String name, float rating, int quantity) {
 		super();
 		this.id = id;
 		this.name = name;
