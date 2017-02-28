@@ -5,7 +5,7 @@ public class ProdComp {
 	
 	public ProdComp() throws ClassNotFoundException, SQLException {
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/prodComp","root","");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/prodComp","root","root");
 		st = con.createStatement();
 	}
 	public static void printResultSet(ResultSet res) throws SQLException {

@@ -1,4 +1,4 @@
-package Lesson7;
+package Lesson07;
 
 public class City {
 	private int code;

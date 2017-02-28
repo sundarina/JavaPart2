@@ -1,4 +1,4 @@
-package Lesson6;
+package Lesson06;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

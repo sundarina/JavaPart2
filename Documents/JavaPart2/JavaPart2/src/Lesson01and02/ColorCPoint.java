@@ -1,4 +1,4 @@
-package Lesson1and2;
+package Lesson01and02;
 
 public class ColorCPoint extends CPoint implements ColorAble{
 private int color;

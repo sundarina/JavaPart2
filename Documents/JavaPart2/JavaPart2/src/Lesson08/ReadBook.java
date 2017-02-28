@@ -1,4 +1,4 @@
-package Lesson8;
+package Lesson08;
 
 import java.io.File;
 import java.io.IOException;

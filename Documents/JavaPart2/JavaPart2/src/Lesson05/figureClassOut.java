@@ -1,12 +1,13 @@
-package Lesson5;
+package Lesson05;
 import java.io.*;
-import Lesson1and2.Figure;
-import Lesson1and2.CLine;
-import Lesson1and2.MainFigures;
-import Lesson1and2.ColorCLine;
-import Lesson1and2.CPoint;
-import Lesson1and2.Triangle;
-import Lesson4.DrawHouse;
+
+import Lesson01and02.CLine;
+import Lesson01and02.CPoint;
+import Lesson01and02.ColorCLine;
+import Lesson01and02.Figure;
+import Lesson01and02.MainFigures;
+import Lesson01and02.Triangle;
+import Lesson04.DrawHouse;
 public class figureClassOut {
 	static ObjectOutputStream out;
 	static ObjectInputStream in;

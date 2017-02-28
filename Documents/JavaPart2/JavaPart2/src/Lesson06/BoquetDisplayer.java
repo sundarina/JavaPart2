@@ -1,4 +1,4 @@
-package Lesson6;
+package Lesson06;
 
 import java.io.File;
 import java.io.FileNotFoundException;

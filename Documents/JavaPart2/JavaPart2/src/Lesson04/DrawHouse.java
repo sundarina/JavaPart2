@@ -1,13 +1,13 @@
-package Lesson4;
-
-import Lesson1and2.Figure;
-import Lesson1and2.CLine;
-import Lesson1and2.MainFigures;
-import Lesson1and2.ColorCLine;
-import Lesson1and2.CPoint;
-import Lesson1and2.Triangle;
+package Lesson04;
 
 import java.io.*;
+
+import Lesson01and02.CLine;
+import Lesson01and02.CPoint;
+import Lesson01and02.ColorCLine;
+import Lesson01and02.Figure;
+import Lesson01and02.MainFigures;
+import Lesson01and02.Triangle;
 
 public class DrawHouse {
 	static FileReader in = null;

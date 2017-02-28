@@ -1,5 +1,5 @@
 package Lesson10;
-//t
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.sql.*;
@@ -157,7 +157,7 @@ public class ProdCompGUI extends JFrame {
 			}
 		}
 		Object[] b = { "ID", "Name", "ActorID", "DirectorID", "Date", "Country" };
-		System.out.println(strCont[0][0]);
+		//System.out.println(strCont[0][0]);
 		table = new JTable(strCont, b);
 		
 		
@@ -192,7 +192,7 @@ public class ProdCompGUI extends JFrame {
 			}
 		}
 		Object[] b = { "ID", "Name" };
-		System.out.println(strCont[0][0]);
+		//System.out.println(strCont[0][0]);
 		table = new JTable(strCont, b);
 		Table[0].setVisible(false);
 		Table[2].setVisible(false);
@@ -224,7 +224,7 @@ public class ProdCompGUI extends JFrame {
 			}
 		}
 		Object[] b = { "ID", "Name" };
-		System.out.println(strCont[0][0]);
+		//System.out.println(strCont[0][0]);
 		table = new JTable(strCont, b);
 		Table[0].setVisible(false);
 		Table[1].setVisible(false);

@@ -1,4 +1,4 @@
-package Lesson1and2;
+package Lesson01and02;
 
 import java.io.*;
 
