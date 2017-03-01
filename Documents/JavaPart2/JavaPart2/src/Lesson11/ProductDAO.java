@@ -9,15 +9,17 @@ import java.util.ArrayList;
 
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 
+
+
 public class ProductDAO {
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/store", "root", "root");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/store", "root", "");
 		Statement st = con.createStatement();
-		try {
+		try{
 			st.executeUpdate("create Table products(id int,name varchar(100),rate float,quantity integer)");
-		} catch (MySQLSyntaxErrorException e) {
-
+		} catch(MySQLSyntaxErrorException e) {
+			
 		}
 
 		return con;
@@ -38,9 +40,11 @@ public class ProductDAO {
 		while (rs.next()) {
 			try {
 				products.get(a).id = rs.getInt(a + 1);
+				
 			} catch (IndexOutOfBoundsException e) {
 				products.add(new Products(0, null, 0, 0));
-				products.get(a).id = rs.getInt(a + 1);
+				
+				products.get(a).id = rs.getInt("id");
 			}
 			//System.out.println(products.get(a).id);
 			a++;
@@ -54,7 +58,7 @@ public class ProductDAO {
 		int a = 0;
 		while (rs.next()) {
 			try {
-				products.get(a).name = rs.getString(a + 1);
+				products.get(a).name = rs.getString("name");
 			} catch (IndexOutOfBoundsException e) {
 				products.add(new Products(0, null, 0, 0));
 				products.get(a).name = rs.getString(a + 1);
@@ -71,7 +75,7 @@ public class ProductDAO {
 		int a = 0;
 		while (rs.next()) {
 			try {
-				products.get(a).rating = rs.getFloat(a + 1);
+				products.get(a).rating = rs.getFloat("rate");
 			} catch (IndexOutOfBoundsException e) {
 				products.add(new Products(0, null, 0, 0));
 				products.get(a).rating = rs.getFloat(a + 1);
@@ -87,7 +91,7 @@ public class ProductDAO {
 		int a = 0;
 		while (rs.next()) {
 			try {
-				products.get(a).quantity= rs.getInt(a + 1);
+				products.get(a).quantity= rs.getInt("quantity");
 			} catch (IndexOutOfBoundsException e) {
 				products.add(new Products(0, null, 0, 0));
 				products.get(a).quantity= rs.getInt(a + 1);

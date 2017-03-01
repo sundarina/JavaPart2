@@ -3,7 +3,7 @@ package Lesson11;
 
 import java.sql.*;
 
-import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
+
 
 public class Products {
 
