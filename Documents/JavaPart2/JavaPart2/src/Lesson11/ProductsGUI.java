@@ -38,7 +38,6 @@ public class ProductsGUI extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	ProductDAO store;
-	
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		ProductDAO store = new ProductDAO();
@@ -155,7 +154,7 @@ public class ProductsGUI extends JFrame {
 		btnUpdate.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				
+
 				try {
 					SendToXml f = new SendToXml(store);
 				} catch (ClassNotFoundException | TransformerException | SQLException
@@ -201,7 +200,7 @@ public class ProductsGUI extends JFrame {
 
 			private void SendToXml(ProductDAO store) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 

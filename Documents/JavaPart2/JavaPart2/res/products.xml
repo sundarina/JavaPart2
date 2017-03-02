@@ -1,6 +1,1 @@
-<?xml version="1.0" encoding="Windows-1251" standalone="no"?>
-<Store>
-	<Product Id="6" Name="one" Quantity="1" Rate="1.0" />
-	<Product Id="2" Name="two" Quantity="0" Rate="0.0" />
-	<Product Id="3" Name="three" Quantity="0" Rate="0.0" />
-</Store>
+<?xml version="1.0" encoding="Windows-1251" standalone="no"?><Store><Product Id="1" Name="TV5" Quantity="1" Rate="109.2"/><Product Id="2" Name="null" Quantity="0" Rate="0.0"/><Product Id="3" Name="null" Quantity="0" Rate="0.0"/></Store>
