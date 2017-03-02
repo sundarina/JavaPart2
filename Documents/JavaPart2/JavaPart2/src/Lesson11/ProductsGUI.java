@@ -10,6 +10,13 @@ import java.sql.Statement;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.stream.XMLOutputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamWriter;
+import javax.xml.transform.TransformerException;
 import javax.swing.JLabel;
 import java.awt.Choice;
 import javax.swing.JTable;
@@ -19,6 +26,9 @@ import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
+import java.io.StringWriter;
 
 public class ProductsGUI extends JFrame {
 
@@ -28,6 +38,7 @@ public class ProductsGUI extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	ProductDAO store;
+	
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		ProductDAO store = new ProductDAO();
@@ -144,6 +155,14 @@ public class ProductsGUI extends JFrame {
 		btnUpdate.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
+				
+				try {
+					SendToXml f = new SendToXml(store);
+				} catch (ClassNotFoundException | TransformerException | SQLException
+						| ParserConfigurationException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
 
 				for (int i = 0; i < choice.countItems(); i++) {
 					store.products.get(choice.getSelectedIndex()).id = Integer.parseInt(textField.getText());
@@ -168,7 +187,7 @@ public class ProductsGUI extends JFrame {
 						String s[] = { Integer.toString(store.products.get(i).id), store.products.get(i).name,
 								Float.toString(store.products.get(i).rating),
 								Integer.toString(store.products.get(i).quantity) };
-						
+
 						st.execute("insert into products(id,name,rate,quantity) values(" + s[0] + ",'" + s[1] + "',"
 								+ s[2] + "," + s[3] + ")");
 
@@ -178,6 +197,11 @@ public class ProductsGUI extends JFrame {
 					}
 				}
 
+			}
+
+			private void SendToXml(ProductDAO store) {
+				// TODO Auto-generated method stub
+				
 			}
 		});
 
