@@ -14,7 +14,7 @@ import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 public class ProductDAO {
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/store", "root", "root");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/store", "root", "");
 		Statement st = con.createStatement();
 		try{
 			st.executeUpdate("create Table products(id int,name varchar(100),rate float,quantity integer)");
