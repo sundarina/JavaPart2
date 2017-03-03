@@ -1,0 +1,18 @@
+package Lesson5;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+public class Lesson5Class1 {
+
+	public static void main(String[] args) {
+		File file = new File("res"+File.separator+"InputFile.info");
+		try {
+			FileInputStream fin = new FileInputStream(file);
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found");
+			return;
+		}
+
+	}
+
+}

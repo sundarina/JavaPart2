@@ -1,0 +1,5 @@
+package prj01;
+
+public interface ColorAble {
+int getColor();
+}

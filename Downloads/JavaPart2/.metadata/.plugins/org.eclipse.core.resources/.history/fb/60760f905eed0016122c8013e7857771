@@ -1,0 +1,72 @@
+
+package Lesson5;
+import Lesson1and2.CPoint;
+
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+class myException extends Exception {
+	
+
+	public myException() {
+		
+	}
+
+	public myException(String arg0, Throwable arg1, boolean arg2, boolean arg3) {
+		super(arg0, arg1, arg2, arg3);
+		// TODO Auto-generated constructor stub
+	}
+
+	public myException(String arg0, Throwable arg1) {
+		super(arg0, arg1);
+		// TODO Auto-generated constructor stub
+	}
+
+	public myException(String arg0) {
+		super(arg0);
+		// TODO Auto-generated constructor stub
+	}
+
+	public myException(Throwable arg0) {
+		super(arg0);
+		// TODO Auto-generated constructor stub
+	}
+	
+}
+
+public class Lesson5Class1 {
+	void openFile() {
+		
+	}
+	static void openFile2() {
+		File file = new File("res" + File.separator + "InputFile.info");
+		DataInputStream dataIn = null;
+		System.out.println(file);
+		
+		try (FileInputStream fin = new FileInputStream(file)) {
+			dataIn = new DataInputStream(fin);
+			String stPoint=dataIn.readUTF();
+			String [] attribPoint=stPoint.split(" ");
+			int x = Integer.parseInt(attribPoint[0]);
+			if(x>10) throw new myException();
+			int y = Integer.parseInt(attribPoint[1]);
+			CPoint point = new CPoint(x,y);
+			
+			
+		} catch (IOException e) {
+			System.err.println("File not found");
+			return;
+		}
+		catch(myException e) {
+			System.err.println("File not Found");
+			return;
+		}
+	}
+
+	public static void main(String[] args) {
+		openFile2();
+	}
+
+}
