@@ -75,7 +75,7 @@ public class Snake implements WindowListener, KeyListener {
 				g.fillRect(h, h1, 20, 20);
 
 				int a = 0;
- 
+
 				int a1 = 0;
 
 				for (int i = 0; i < 100; i++) {
@@ -136,13 +136,11 @@ public class Snake implements WindowListener, KeyListener {
 		f.addWindowListener(this);
 		f.addKeyListener(this);
 		f.setSize(800, 750);
-		
-		
 
 		Frame g = new Frame("Hi");
 		g.setBackground(Color.GRAY);
 		g.setVisible(true);
-		g.setLayout(new GridLayout(2,2));
+		g.setLayout(new GridLayout(2, 2));
 		g.add(lis);
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -159,12 +157,12 @@ public class Snake implements WindowListener, KeyListener {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+
 		ResultSet rs = null;
 		try {
 			rs = st.executeQuery("select MAX(maxScore) as HighestmaxScore from scores");
 			rs = st.executeQuery("SELECT * from scores ORDER BY maxScore DESC");
-			for(int i = 0; rs.next();i++) {
+			for (int i = 0; rs.next(); i++) {
 				lis.add(rs.getString("name"));
 				lis2.add(rs.getString("maxScore"));
 			}
@@ -172,17 +170,12 @@ public class Snake implements WindowListener, KeyListener {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
-		
-		
-		
-		
-		
+
 		textF = new TextField("Enter Name");
 		textF.setBounds(0, 50, 100, 20);
 		btnDone = new Button("Done");
 		btnDone.setBounds(50, 50, 100, 20);
-		
-		
+
 		btnDone.addMouseListener(new MouseListener() {
 
 			@Override
